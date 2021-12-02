@@ -1,34 +1,34 @@
 from typing import List
 
-def count_value_increases(lines: List[str]) -> int:
+def count_depth_increases(depths: List[int]) -> int:
 	count = 0
-	prev_value = int(lines[0])
-	for line in lines[1:]:
-		if prev_value < int(line):
+	prev_depth = depths[0]
+	for depth in depths[1:]:
+		if prev_depth < depth:
 			count += 1
-		prev_value = int(line)
+		prev_depth = depth
 	return count
 
-def count_window_increases(lines: List[str]) -> int:
+def count_depth_window_increases(depths: List[int]) -> int:
 	count = 0
-	v1 = int(lines[1])
-	v2 = int(lines[2])
-	prev_sum = int(lines[0]) + v1 + v2
+	v1 = depths[1]
+	v2 = depths[2]
+	prev_sum = depths[0] + v1 + v2
 
-	for line in lines[3:]:
-		curr_sum = v1 + v2 + int(line)
+	for depth in depths[3:]:
+		curr_sum = v1 + v2 + depth
 		if prev_sum < curr_sum:
 			count += 1
 		prev_sum = curr_sum
 		v1 = v2
-		v2 = int(line)
+		v2 = depth
 	return count
 
 def main():
 	with open('input1.txt') as f:
-		lines = f.readlines()
-		c1 = count_value_increases(lines)
-		c2 = count_window_increases(lines)
+		depths = [int(line) for line in f.readlines()]
+		c1 = count_depth_increases(depths)
+		c2 = count_depth_window_increases(depths)
 	print("part1:", c1,"\npart2:", c2)
 
 if __name__ == "__main__":
