@@ -25,7 +25,7 @@ def count_window_increases(lines: List[str]) -> int:
 	return count
 
 def main():
-	with open('input.txt') as f:
+	with open('input1.txt') as f:
 		lines = f.readlines()
 		c1 = count_value_increases(lines)
 		c2 = count_window_increases(lines)
