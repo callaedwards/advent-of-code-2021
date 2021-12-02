@@ -1,10 +1,10 @@
 from typing import List
 
-def calculate_depth_and_position(lines: List[str]) -> int:
-	depth = 0
-	position = 0
-	for line in lines:
-		direction, value = line.split()
+def calculate_depth_and_position(instructions: List[str]) -> int:
+	depth, position = 0
+	
+	for line in instructions:
+		direction, value = line
 		value = int(value)
 		if direction == "up":
 			depth -= value
@@ -14,12 +14,11 @@ def calculate_depth_and_position(lines: List[str]) -> int:
 			position += value
 	return(position * depth)
 
-def calculate_depth_and_position_with_aim(lines: List[str]) -> int:
-	depth = 0
-	position = 0
-	aim = 0
-	for line in lines:
-		direction, value = line.split()
+def calculate_depth_and_position_with_aim(instructions: List[str]) -> int:
+	depth, position, aim = 0
+
+	for line in instructions:
+		direction, value = line
 		value = int(value)
 		if direction == "up":
 			aim -= value
@@ -32,9 +31,9 @@ def calculate_depth_and_position_with_aim(lines: List[str]) -> int:
 
 def main():
 	with open('input2.txt') as f:
-		lines = f.readlines()
-		a1 = calculate_depth_and_position(lines)
-		a2 = calculate_depth_and_position_with_aim(lines)
+		instructions = [line.split() for line in f.readlines()]
+		a1 = calculate_depth_and_position(instructions)
+		a2 = calculate_depth_and_position_with_aim(instructions)
 	print("part1:", a1,"\npart2:", a2)
 
 if __name__ == "__main__":
