@@ -1,4 +1,6 @@
-def count_value_increases(lines: [str]) -> int:
+from typing import List
+
+def count_value_increases(lines: List[str]) -> int:
 	count = 0
 	prev_value = int(lines[0])
 	for line in lines[1:]:
@@ -7,7 +9,7 @@ def count_value_increases(lines: [str]) -> int:
 		prev_value = int(line)
 	return count
 
-def count_window_increases(lines: [str]) -> int:
+def count_window_increases(lines: List[str]) -> int:
 	count = 0
 	v1 = int(lines[1])
 	v2 = int(lines[2])
