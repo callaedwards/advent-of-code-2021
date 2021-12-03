@@ -1,4 +1,6 @@
+from setup import get_input_file_path
 from typing import List
+
 
 def count_depth_increases(depths: List[int]) -> int:
 	count = 0
@@ -25,7 +27,8 @@ def count_depth_window_increases(depths: List[int]) -> int:
 	return count
 
 def main():
-	with open('input1.txt') as f:
+	input_file = get_input_file_path()
+	with open(input_file) as f:
 		depths = [int(line) for line in f.readlines()]
 		c1 = count_depth_increases(depths)
 		c2 = count_depth_window_increases(depths)
