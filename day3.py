@@ -31,7 +31,7 @@ def invert_bit_string(input_binary_string: str) -> str:
 def binary_to_decimal(binary: str) -> int:
 	return int(binary, 2)
 
-def part1(binary_readings: List[str]) -> str:
+def part1(binary_readings: List[str]) -> int:
 	most_common_bits = find_most_common_bits(binary_readings)
 	least_common_bits = invert_bit_string(most_common_bits)
 
@@ -67,7 +67,7 @@ def find_least_common_bit(binary_readings: List[str], index: int) -> str:
 		return 1
 
 
-def find_match(binary_readings: List[str], most_common: bool):
+def find_match(binary_readings: List[str], most_common: bool) -> str:
 	match = ""
 	matches = binary_readings
 	i = 0
@@ -82,7 +82,7 @@ def find_match(binary_readings: List[str], most_common: bool):
 	return matches[0]
 
 
-def part2(binary_readings: List[str]) -> str:
+def part2(binary_readings: List[str]) -> int:
 	most_common_bit_result = find_match(binary_readings, True)
 	oxygen_generator_reating = binary_to_decimal(most_common_bit_result)
 
