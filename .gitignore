@@ -132,4 +132,4 @@ dmypy.json
 .idea/
 
 # Other
-inputs/*test.txt
+*test.txt
