@@ -1,5 +1,5 @@
 from setup import get_input_file_path
-from typing import List, Tuple
+from typing import List
 
 BOARD_SIZE = 5
 

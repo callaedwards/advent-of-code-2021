@@ -2,7 +2,6 @@ from setup import get_input_file_path
 from typing import List
 
 
-
 def find_most_common_bits(binary_readings: List[str]) -> str:
 	column_sums = [0]*len(binary_readings[0])
 	for binary in binary_readings:
@@ -19,6 +18,7 @@ def find_most_common_bits(binary_readings: List[str]) -> str:
 			binary_string += "0"
 	return binary_string
 
+
 def invert_bit_string(input_binary_string: str) -> str:
 	output_binary_string = ""
 	for bit in input_binary_string:
@@ -28,8 +28,10 @@ def invert_bit_string(input_binary_string: str) -> str:
 			output_binary_string += "1"
 	return output_binary_string
 
+
 def binary_to_decimal(binary: str) -> int:
 	return int(binary, 2)
+
 
 def part1(binary_readings: List[str]) -> int:
 	most_common_bits = find_most_common_bits(binary_readings)
@@ -39,10 +41,10 @@ def part1(binary_readings: List[str]) -> int:
 	epsilon_rate = binary_to_decimal(least_common_bits)
 
 	power_consumption = gamma_rate * epsilon_rate
-	return(power_consumption)
+	return power_consumption
 
 
-def find_most_common_bit(binary_readings: List[str], index: int) -> str:
+def find_most_common_bit(binary_readings: List[str], index: int) -> int:
 	sum = 0
 	for binary in binary_readings:
 		sum += int(binary[index])
@@ -54,7 +56,7 @@ def find_most_common_bit(binary_readings: List[str], index: int) -> str:
 		return 0
 
 
-def find_least_common_bit(binary_readings: List[str], index: int) -> str:
+def find_least_common_bit(binary_readings: List[str], index: int) -> int:
 	sum = 0
 	for binary in binary_readings:
 		sum += int(binary[index])
@@ -71,7 +73,7 @@ def find_match(binary_readings: List[str], most_common: bool) -> str:
 	match = ""
 	matches = binary_readings
 	i = 0
-	while(len(matches) > 1):
+	while len(matches) > 1:
 		if most_common:
 			desired_bit = find_most_common_bit(matches, i)
 		else:
@@ -84,14 +86,14 @@ def find_match(binary_readings: List[str], most_common: bool) -> str:
 
 def part2(binary_readings: List[str]) -> int:
 	most_common_bit_result = find_match(binary_readings, True)
-	oxygen_generator_reating = binary_to_decimal(most_common_bit_result)
+	oxygen_generator_reading = binary_to_decimal(most_common_bit_result)
 
 	least_common_bit_result = find_match(binary_readings, False)
 	co2_scrubber_rating = binary_to_decimal(least_common_bit_result)
 
-	life_support_rating = oxygen_generator_reating * co2_scrubber_rating
+	life_support_rating = oxygen_generator_reading * co2_scrubber_rating
 
-	return(life_support_rating)
+	return life_support_rating
 
 
 def main():
@@ -106,4 +108,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+	main()

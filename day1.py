@@ -11,6 +11,7 @@ def count_depth_increases(depths: List[int]) -> int:
 		prev_depth = depth
 	return count
 
+
 def count_depth_window_increases(depths: List[int]) -> int:
 	count = 0
 	v1 = depths[1]
@@ -26,13 +27,15 @@ def count_depth_window_increases(depths: List[int]) -> int:
 		v2 = depth
 	return count
 
+
 def main():
 	input_file = get_input_file_path()
 	with open(input_file) as f:
 		depths = [int(line) for line in f.readlines()]
 		c1 = count_depth_increases(depths)
 		c2 = count_depth_window_increases(depths)
-	print("part1:", c1,"\npart2:", c2)
+	print("part1:", c1, "\npart2:", c2)
+
 
 if __name__ == "__main__":
-    main()
+	main()

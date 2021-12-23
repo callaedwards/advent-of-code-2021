@@ -15,7 +15,8 @@ def calculate_depth_and_position(instructions: List[List[str]]) -> int:
 			depth += value
 		elif direction == "forward":
 			position += value
-	return(position * depth)
+	return position * depth
+
 
 def calculate_depth_and_position_with_aim(instructions: List[List[str]]) -> int:
 	depth = 0
@@ -32,7 +33,8 @@ def calculate_depth_and_position_with_aim(instructions: List[List[str]]) -> int:
 		elif direction == "forward":
 			position += value
 			depth += aim * value
-	return(position * depth)
+	return position * depth
+
 
 def main():
 	input_file = get_input_file_path()
@@ -40,7 +42,8 @@ def main():
 		instructions = [line.split() for line in f.readlines()]
 		a1 = calculate_depth_and_position(instructions)
 		a2 = calculate_depth_and_position_with_aim(instructions)
-	print("part1:", a1,"\npart2:", a2)
+	print("part1:", a1, "\npart2:", a2)
+
 
 if __name__ == "__main__":
-    main()
+	main()
